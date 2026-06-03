@@ -1,3 +1,5 @@
+HOLA estamos en clase de github
+
 # CodeScope
 
 LLM-first security auditing. Paste a GitHub repo, get real vulnerabilities with exploit scenarios and code fixes.
@@ -105,16 +107,16 @@ Open `http://localhost:5173`. Paste a repo URL. Watch it scan.
 
 ## API
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/v1/audit` | POST | Submit a security audit |
-| `/api/v1/tasks/{id}` | GET | Get task status and results |
-| `/api/v1/tasks/{id}/report` | GET | Get parsed findings + report |
-| `/api/v1/findings/fix` | POST | Apply a fix on the Droplet |
-| `/api/v1/findings/create-pr` | POST | Create a GitHub PR from a fix |
-| `/api/v1/audits/recent` | GET | Global audit feed |
-| `/api/v1/stats` | GET | Platform statistics |
-| `/health` | GET | Health check + warm pool status |
+| Endpoint                     | Method | Description                     |
+| ---------------------------- | ------ | ------------------------------- |
+| `/api/v1/audit`              | POST   | Submit a security audit         |
+| `/api/v1/tasks/{id}`         | GET    | Get task status and results     |
+| `/api/v1/tasks/{id}/report`  | GET    | Get parsed findings + report    |
+| `/api/v1/findings/fix`       | POST   | Apply a fix on the Droplet      |
+| `/api/v1/findings/create-pr` | POST   | Create a GitHub PR from a fix   |
+| `/api/v1/audits/recent`      | GET    | Global audit feed               |
+| `/api/v1/stats`              | GET    | Platform statistics             |
+| `/health`                    | GET    | Health check + warm pool status |
 
 ## Architecture
 
@@ -147,28 +149,28 @@ dashboard/
 
 ## DigitalOcean services used
 
-| Service | Purpose |
-|---------|---------|
-| Gradient AI | LLM security analysis (3 models in parallel) |
-| Droplets | Ephemeral audit VMs with warm pool reuse |
-| Spaces | Result storage, dashboard hosting, audit history |
-| App Platform | API hosting via Container Registry |
-| Snapshots | Pre-built images for fast Droplet boot |
+| Service      | Purpose                                          |
+| ------------ | ------------------------------------------------ |
+| Gradient AI  | LLM security analysis (3 models in parallel)     |
+| Droplets     | Ephemeral audit VMs with warm pool reuse         |
+| Spaces       | Result storage, dashboard hosting, audit history |
+| App Platform | API hosting via Container Registry               |
+| Snapshots    | Pre-built images for fast Droplet boot           |
 
 ## Environment variables
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `DIGITALOCEAN_API_TOKEN` | Yes | DO API token for Droplet management |
-| `SPACES_KEY` | Yes | Spaces access key |
-| `SPACES_SECRET` | Yes | Spaces secret key |
-| `SPACES_BUCKET` | Yes | Spaces bucket name |
-| `SPACES_REGION` | Yes | Spaces region (e.g. `sfo3`) |
-| `GRADIENT_MODEL_ACCESS_KEY` | Yes | Gradient AI model key |
-| `ORCHESTRATOR_URL` | Yes | Public URL of the orchestrator |
-| `MAX_CONCURRENT_DROPLETS` | No | Max Droplets (default: 5) |
-| `MAX_DROPLET_AGE_MINUTES` | No | Droplet lifetime (default: 55) |
-| `DAILY_BUDGET_USD` | No | Daily spend cap (default: 5.0) |
+| Variable                    | Required | Description                         |
+| --------------------------- | -------- | ----------------------------------- |
+| `DIGITALOCEAN_API_TOKEN`    | Yes      | DO API token for Droplet management |
+| `SPACES_KEY`                | Yes      | Spaces access key                   |
+| `SPACES_SECRET`             | Yes      | Spaces secret key                   |
+| `SPACES_BUCKET`             | Yes      | Spaces bucket name                  |
+| `SPACES_REGION`             | Yes      | Spaces region (e.g. `sfo3`)         |
+| `GRADIENT_MODEL_ACCESS_KEY` | Yes      | Gradient AI model key               |
+| `ORCHESTRATOR_URL`          | Yes      | Public URL of the orchestrator      |
+| `MAX_CONCURRENT_DROPLETS`   | No       | Max Droplets (default: 5)           |
+| `MAX_DROPLET_AGE_MINUTES`   | No       | Droplet lifetime (default: 55)      |
+| `DAILY_BUDGET_USD`          | No       | Daily spend cap (default: 5.0)      |
 
 ## License
 
